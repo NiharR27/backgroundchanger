@@ -1,24 +1,45 @@
-.App {
-  text-align: center;
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 10%;
-  width: 50%;
+body {
+  display: flex;
   justify-content: center;
+  align-items: center;
+  background: #14192C;
 }
-
-
 
 #myImg {
+  display: block;
   height: 40vmin;
- 
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
-#button :hover {
-background-color: green;
-text-align: center;
-border: none;
-color: black;
-display: inline-block;
-padding: 15px 32px;
+
+#mybutton {
+  font-family: 'Fascinate Inline', cursive;
+  font-size: 4vmin;
+  appearance: none;
+  background: linear-gradient(to bottom, #F46001, #E14802);
+  border: none;
+  color: #FFF;
+  border-radius: 2em;
+  padding: .6em 1.5em;
+  overflow: hidden;
+  user-select: none;
+  cursor: pointer;
+  z-index: 1;
+  box-shadow: 0 0 1em rgba(white, .2);
+  transition: transform .1s cubic-bezier(.5, 0, .5, 1),
+    box-shadow .2s;
+}
+
+#colortag {
+  color: white;
 }

@@ -13,27 +13,30 @@ import bike from './icons/Icon metro-directions-bike.svg';
 class App extends React.Component {
   constructor() {
     super();
-    var lala = [Rectangle135,Rectangle136, Rectangle137,Rectangle207,fire,mountain,theermometer,bike];
-    var randomIcon = Math.floor(Math.random() * lala.length -1) + 1;
-    this.state = {lala, randomIcon}; 
-    
+    var shapes = [Rectangle135,Rectangle136, Rectangle137,Rectangle207,fire,mountain,theermometer,bike];
+    var randomIcon = Math.floor(Math.random() * shapes.length -1) + 1;
+    var randomColor = 'F46001';
+    this.state = {shapes, randomIcon, randomColor}; 
   }
 
   changeBg() {
-    var randomColor = Math.floor(Math.random()*16777215).toString(16);
-    this.state.randomIcon = Math.floor(Math.random() * this.state.lala.length - 1) + 1;
-    document.body.style.backgroundColor = "#" +randomColor;
-    document.getElementById('myImg').src = this.state.lala[this.state.randomIcon] ;
+    this.state.randomColor = Math.floor(Math.random()*16777215).toString(16);
+    this.state.randomIcon = Math.floor(Math.random() * this.state.shapes.length - 1) + 1;
+    document.getElementById('myImg').src = this.state.shapes[this.state.randomIcon] ;
+    document.getElementById('mybutton').style.background = "#" +this.state.randomColor;
+    this.setState( {
+      randomColor: this.state.randomColor
+    }); 
   }
 
   render() {
     console.log(this.state.randomIcon);
     return (
       <div className ="myButton">
-        <p><img id = 'myImg' src={this.state.lala[this.state.randomIcon]} alt='svg image'/> </p>
-        <p><button id = 'button' onClick={() => this.changeBg()}>Change Color and  Icon</button></p>
+        <p><img id = 'myImg' src={this.state.shapes[this.state.randomIcon]} alt='svg image'/> </p>
+        <p><button id = 'mybutton' onClick={() => this.changeBg()}>Change Color and  Icon</button></p>
+        <p id = 'colortag'>Colour Hex: {'#' + this.state.randomColor}</p>
     </div>
-      
     );
   }
 }
